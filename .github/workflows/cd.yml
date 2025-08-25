@@ -1,0 +1,18 @@
+name: CD for Java App
+
+on:
+  workflow_run:
+    workflows: ["CI for Java App"]
+    types:
+      - completed
+
+jobs:
+  call-cd:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    uses: my-org/repo2/.github/workflows/cd-java.yml@main
+    with:
+      docker-image-name: 'my-java-app'
+      acr-name: 'myregistry'
+      aks-name: 'my-aks'
+      resource-group: 'my-rg'
+      namespace: 'default'
