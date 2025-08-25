@@ -1,4 +1,4 @@
-name: CI for Java App
+name: CI for Java App (Dry Run)
 
 on:
   push:
@@ -7,18 +7,10 @@ on:
 
 jobs:
   call-ci:
-    uses: manoj-lingaiah/mj-cicd-lib-repo/.github/workflows/ci-java.yml@test_workflow/v1
+    uses: manoj-lingaiah/mj-cicd-lib-repo/.github/workflows/ci-java.yml@v1
     with:
       java-version: '21'
       docker-image-name: 'my-java-app'
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-
-  debug:
-    runs-on: ubuntu-latest
-    needs: call-ci
-    steps:
-      - name: Say Hello
-        run: echo "Hello"
-
