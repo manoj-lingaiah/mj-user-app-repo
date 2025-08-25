@@ -8,9 +8,9 @@ on:
 jobs:
   call-ci:
     uses: manoj-lingaiah/mj-cicd-lib-repo/.github/workflows/ci-java.yml@main
-    with:
-      java-version: '21'
-      docker-image-name: 'my-java-app'
-    secrets:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+    # with:
+    #   java-version: '21'
+    #   docker-image-name: 'my-java-app'
+    # secrets:
+    #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    #   SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
