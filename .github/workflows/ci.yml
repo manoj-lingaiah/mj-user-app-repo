@@ -1,0 +1,15 @@
+name: CI for Java App
+
+on:
+  push:
+    branches: [ "dev", "main" ]
+
+jobs:
+  call-ci:
+    uses: my-org/repo2/.github/workflows/ci-java.yml@main
+    with:
+      java-version: '21'
+      docker-image-name: 'my-java-app'
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
