@@ -8,9 +8,22 @@ on:
 jobs:
   call-ci:
     uses: manoj-lingaiah/mj-cicd-lib-repo/.github/workflows/ci-java.yml@main
+      echo "Hell" 
     # with:
     #   java-version: '21'
     #   docker-image-name: 'my-java-app'
     # secrets:
     #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     #   SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+  # CI:
+  #   uses: procter-gamble/de-cicd-gh-actions-library/.github/workflows/ci-python.yml@ci-python-workflow/v1
+  #   secrets: inherit
+  #   permissions:
+  #     contents: write
+  #     pull-requests: write
+  #     id-token: write
+  #   with:
+  #     GIT_ENVIRONMENT: ${{ (github.ref == 'refs/heads/PROD' && 'prod') || (github.ref == 'refs/heads/UAT' && 'uat') || 'dev' }}
+  #     RUN_BUILD: false
+      RUN_UNIT_TEST: false
